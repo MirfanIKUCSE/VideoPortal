@@ -1,0 +1,126 @@
+﻿body {
+
+}
+
+#vp-body{
+    background-color: lightgray;
+}
+
+#vp-header{
+    height: 80px;
+    width: 100%;
+    text-align: center;
+    background-color: wheat;
+    margin-bottom:5px;
+    font-family: Consolas, sans-serif;
+}
+
+#vp-top-menu{
+    line-height: 10px;
+    padding: 1%;
+    width: 98%;
+    min-height: 30px;
+    height: auto;
+    background-color: white;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#vp-left-menu{
+    float: left;
+    min-height: 400px;
+    height: auto;
+    width: 20%;
+    background-color: white;
+}
+
+#vp-content{
+    text-align: left,justify;
+    float: right;
+    min-height: 400px;
+    height: auto;
+    /*margin-left: 1%;*/
+    margin-right: 4%;
+    padding-left: 1%;
+    padding-right: 1%;
+    width: 70%;
+    background-color: whitesmoke;
+    margin-bottom: 5px;
+}
+
+#vp-footer{
+    clear: both;
+    font-size: 20px;
+    font-family: Consolas;
+    text-decoration: none;
+    height: 50px;
+    background-color: wheat;
+    bottom: 0px;
+}
+
+
+.top-menu-ul li{
+    float: right;
+    display: block;
+    margin-left: 15px;
+}
+/*.top-menu-ul li a{
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: deeppink;
+    font-weight:bolder;
+}
+.top-menu-ul li a:hover{
+    text-decoration: underline;
+    color: black;
+}*/
+
+.left-menu-ul li{
+    letter-spacing: 0.1em;
+    font-size:20px;
+    display: block;
+    margin-left: 5px;
+}
+
+/*.left-menu-ul li a {
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: deeppink;
+    font-weight:bolder;
+}
+.left-menu-ul li a:hover {
+    text-decoration: underline;
+    color: black;
+}*/
+
+/*ul li {
+    float: right;
+    display: block;
+    margin-left: 15px;
+}*/
+body li a {
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    color: deeppink;
+    font-weight:bolder;
+}
+
+body li a:hover{
+    text-decoration: underline;
+    color: black;
+}
+
+.video-small{
+    float:left;
+    height: 150px;
+    width: 100px;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+.text-center{
+    text-align: center;
+}

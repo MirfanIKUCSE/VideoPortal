@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Home.master.cs" Inherits="Home" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="style/style.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+        <link href="style/style.css" rel="stylesheet" />
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="vp-body">
+            <div id="vp-header">
+                <center><h1>HEADER</h1></center>
+            </div>
+            <div id="vp-top-menu">
+                <center>TOP-MENU</center>
+                <ul class="top-menu-ul">
+                    <li><a href="SignUp.aspx">SignUp</a></li>
+                    <li><a href="Upload.aspx">Upload!</a></li>
+                </ul>
+            </div>
+            <div id="vp-left-menu">
+                <center><h3>LEFT-MENU</h3></center>
+                <ul class="left-menu-ul">
+                    <asp:Repeater ID="repCategory" runat="server">
+                        <ItemTemplate>
+                            <li><a href="CategoryDetail.aspx?cid=<%# Eval("category_id") %>">
+                                <%# Eval("category_name") %>
+                            </a></li>
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </ul>
+            </div>
+            <div id="vp-content">
+                <asp:ContentPlaceHolder ID="Content" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="vp-footer">
+                <center><h1>FOOTER</h1></center>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
