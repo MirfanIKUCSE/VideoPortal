@@ -7,7 +7,6 @@
     <title></title>
     <link href="style/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
-        <link href="style/style.css" rel="stylesheet" />
     </asp:ContentPlaceHolder>
 </head>
 <body>
@@ -18,9 +17,33 @@
             </div>
             <div id="vp-top-menu">
                 <center>TOP-MENU</center>
+                <asp:LoginView ID="LoginView2" runat="server">
+                    <LoggedInTemplate>
+                        Welcome,
+                        <asp:LoginName ID="LoginName1" runat="server" Font-Bold="True" ForeColor="#0066FF" />
+                    </LoggedInTemplate>
+                    <AnonymousTemplate>
+                    </AnonymousTemplate>
+                </asp:LoginView>
+
                 <ul class="top-menu-ul">
-                    <li><a href="SignUp.aspx">SignUp</a></li>
-                    <li><a href="Upload.aspx">Upload!</a></li>
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <LoggedInTemplate>
+                            <li>
+                                <asp:LinkButton ID="lnkBtnLogout" OnClick="lnkBtnLogout_Click" runat="server" CausesValidation="False">Logout</asp:LinkButton>
+                            </li>
+                        </LoggedInTemplate>
+                        <AnonymousTemplate>
+                            <%--<li><a href="/SignUp.aspx">SignUp</a></li>
+                            <li><a href="/Login.aspx">Login</a></li>--%>
+                            <li><asp:HyperLink ID="HyperLink3" NavigateUrl="~/SignUp.aspx" Text="Signup" runat="server"></asp:HyperLink></li>
+                            <li><asp:HyperLink ID="HyperLink4" NavigateUrl="~/Login.aspx" Text="Login" runat="server"/></li>
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                    <%--<li><a href="Member/Upload.aspx">Upload!</a></li>--%>
+                    <li>
+                        <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Member/Upload.aspx" Text="Upload Video" runat="server"></asp:HyperLink>
+                    </li>
                 </ul>
             </div>
             <div id="vp-left-menu">
@@ -28,9 +51,12 @@
                 <ul class="left-menu-ul">
                     <asp:Repeater ID="repCategory" runat="server">
                         <ItemTemplate>
-                            <li><a href="CategoryDetail.aspx?cid=<%# Eval("category_id") %>">
-                                <%# Eval("category_name") %>
-                            </a></li>
+                            <li>
+                                <%--<a href="CategoryDetail.aspx?cid=<%# Eval("category_id") %>">
+                                    <%# Eval("category_name") %>
+                                </a>--%>
+                                <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("category_id","~/CategoryDetail.aspx?cid={0}") %>' Text='<%# Eval("category_name") %>' />
+                            </li>
                         </ItemTemplate>
                     </asp:Repeater>
                 </ul>
