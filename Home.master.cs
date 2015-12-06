@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data.SqlClient;
 using System.Data;
+using System.Web.Security;
 
 public partial class Home : System.Web.UI.MasterPage
 {
@@ -27,5 +28,12 @@ public partial class Home : System.Web.UI.MasterPage
         finally{
             conn.Close();
         }
+    }
+
+    protected void lnkBtnLogout_Click(Object sender, EventArgs e)
+    {
+        FormsAuthentication.SignOut();
+        Session.Abandon();
+        Response.Redirect("/Default.aspx");
     }
 }
