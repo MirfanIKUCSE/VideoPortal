@@ -1,21 +1,19 @@
-﻿body {
+﻿
 
-}
-
-#vp-body{
+#vp-body {
     background-color: lightgray;
 }
 
-#vp-header{
+#vp-header {
     height: 80px;
     width: 100%;
     text-align: center;
     background-color: wheat;
-    margin-bottom:5px;
+    margin-bottom: 5px;
     font-family: Consolas, sans-serif;
 }
 
-#vp-top-menu{
+#vp-top-menu {
     line-height: 10px;
     padding: 1%;
     width: 98%;
@@ -27,7 +25,7 @@
     margin-right: auto;
 }
 
-#vp-left-menu{
+#vp-left-menu {
     float: left;
     min-height: 400px;
     height: auto;
@@ -35,7 +33,7 @@
     background-color: white;
 }
 
-#vp-content{
+#vp-content {
     text-align: left,justify;
     float: right;
     min-height: 400px;
@@ -49,7 +47,7 @@
     margin-bottom: 5px;
 }
 
-#vp-footer{
+#vp-footer {
     clear: both;
     font-size: 20px;
     font-family: Consolas;
@@ -60,7 +58,7 @@
 }
 
 
-.top-menu-ul li{
+.top-menu-ul li {
     float: right;
     display: block;
     margin-left: 15px;
@@ -76,9 +74,9 @@
     color: black;
 }*/
 
-.left-menu-ul li{
+.left-menu-ul li {
     letter-spacing: 0.1em;
-    font-size:20px;
+    font-size: 20px;
     display: block;
     margin-left: 5px;
 }
@@ -99,7 +97,7 @@
     display: block;
     margin-left: 15px;
 }*/
-body li a {
+/*body li a {
     text-decoration: none;
     font-family: Arial, sans-serif;
     color: deeppink;
@@ -109,18 +107,45 @@ body li a {
 body li a:hover{
     text-decoration: underline;
     color: black;
-}
+}*/
 
-.video-small{
-    float:left;
+.video-small {
+    float: left;
     height: 150px;
     width: 100px;
 }
 
-.text-justify{
+.text-justify {
     text-align: justify;
 }
 
-.text-center{
+.text-bold-red{
+    color: red;
+    font-weight:bold;
+}
+
+.text-center {
     text-align: center;
+}
+
+body a {
+    text-decoration: none;
+    color: #3a3a3a;
+}
+
+body a:visited {
+    color: #4a4a4a;
+    text-decoration: none;
+}
+
+body a:hover {
+    background-color:lightgray;
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+body a:active {
+    background-color: burlywood;
+    color: purple;
+    text-decoration: double;
 }
