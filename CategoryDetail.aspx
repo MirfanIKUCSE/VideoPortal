@@ -7,7 +7,7 @@
     <asp:datalist id="DataList1" runat="server" repeatdirection="Horizontal" repeatlayout="Flow">
         <ItemTemplate>
             <div style="margin-top: 10px; margin-bottom: 40px; margin-left: 30px; width: 190px; height: 150px; text-align: left; float:left; font-size: 13px;">
-                <a style="text-decoration: none;" href="VideoDetail.aspx?vid=<%# Eval("post_id")%>">
+                <a style="text-decoration: none;" href="Video.aspx?vid=<%# Eval("post_id")%>">
                     <asp:Image ID="Image1" ImageUrl="~/image/nicon_190x110.png" runat="server" />
                     <br />
                     <asp:Label ID="Label1" runat="server" Font-Bold="true" Text='<% # trunc(Eval("post_caption").ToString(), 50) %>' ToolTip='<%# Eval("post_caption").ToString() %>' ForeColor="#3366CC"></asp:Label>

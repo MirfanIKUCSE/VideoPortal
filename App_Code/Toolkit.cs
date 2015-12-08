@@ -201,4 +201,21 @@ public class Toolkit
         }
         return result;
     }
+
+    public static DataTable ProcReadVideoContent(int post_id)
+    {
+        SqlConnection Conn = new SqlConnection(@"Server = DBTMN\SQLEXPRESS; Database = VideoPortal; Trusted_Connection = True;");
+        Conn.Open();
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "ReadContent";
+        cmd.Connection = Conn;
+        cmd.Parameters.AddWithValue("@postid", post_id.ToString());
+        cmd.ExecuteNonQuery();
+        SqlDataAdapter adp = new SqlDataAdapter(cmd);
+        adp.Fill(dt);
+        Conn.Close();
+        return dt;
+    }
 }
