@@ -123,6 +123,9 @@ body li a:hover{
     color: red;
     font-weight:bold;
 }
+.text-bold{
+    font-weight:bold;
+}
 
 .text-center {
     text-align: center;
