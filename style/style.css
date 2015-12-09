@@ -1,6 +1,6 @@
 ﻿
 
-#vp-body {
+/*#vp-body {
     background-color: lightgray;
 }
 
@@ -8,7 +8,7 @@
     height: 80px;
     width: 100%;
     text-align: center;
-    background-color: wheat;
+    background-color: #f1f1f1;
     margin-bottom: 5px;
     font-family: Consolas, sans-serif;
 }
@@ -26,11 +26,12 @@
 }
 
 #vp-left-menu {
+    padding-top: 1%;
     float: left;
     min-height: 400px;
     height: auto;
-    width: 20%;
-    background-color: white;
+    width: 15VW;
+    background-color: #f1f1f1;
 }
 
 #vp-content {
@@ -38,11 +39,11 @@
     float: right;
     min-height: 400px;
     height: auto;
-    /*margin-left: 1%;*/
+    margin-left: 1%;
     margin-right: 4%;
     padding-left: 1%;
     padding-right: 1%;
-    width: 70%;
+    width: 75VW;
     background-color: whitesmoke;
     margin-bottom: 5px;
 }
@@ -53,7 +54,7 @@
     font-family: Consolas;
     text-decoration: none;
     height: 50px;
-    background-color: wheat;
+    background-color: #f1f1f1;
     bottom: 0px;
 }
 
@@ -63,16 +64,7 @@
     display: block;
     margin-left: 15px;
 }
-/*.top-menu-ul li a{
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    color: deeppink;
-    font-weight:bolder;
-}
-.top-menu-ul li a:hover{
-    text-decoration: underline;
-    color: black;
-}*/
+
 
 .left-menu-ul li {
     letter-spacing: 0.1em;
@@ -81,33 +73,7 @@
     margin-left: 5px;
 }
 
-/*.left-menu-ul li a {
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    color: deeppink;
-    font-weight:bolder;
-}
-.left-menu-ul li a:hover {
-    text-decoration: underline;
-    color: black;
-}*/
 
-/*ul li {
-    float: right;
-    display: block;
-    margin-left: 15px;
-}*/
-/*body li a {
-    text-decoration: none;
-    font-family: Arial, sans-serif;
-    color: deeppink;
-    font-weight:bolder;
-}
-
-body li a:hover{
-    text-decoration: underline;
-    color: black;
-}*/
 
 .video-small {
     float: left;
@@ -119,12 +85,13 @@ body li a:hover{
     text-align: justify;
 }
 
-.text-bold-red{
+.text-bold-red {
     color: red;
-    font-weight:bold;
+    font-weight: bold;
 }
-.text-bold{
-    font-weight:bold;
+
+.text-bold {
+    font-weight: bold;
 }
 
 .text-center {
@@ -136,74 +103,74 @@ body a {
     color: #3a3a3a;
 }
 
-body a:visited {
-    color: #4a4a4a;
-    text-decoration: none;
+    body a:visited {
+        color: #4a4a4a;
+        text-decoration: none;
+    }
+
+    body a:hover {
+        background-color: lightgray;
+        color: blueviolet;
+        text-decoration: underline;
+    }
+
+    body a:active {
+        background-color: burlywood;
+        color: purple;
+        text-decoration: double;
+    }
+
+#videoDIV {
+    margin-top: 2%;
+    margin-left: 2%;
+    float: left;
+    width: 45%;
+    height: 500px;
+    background-color: yellow;
 }
 
-body a:hover {
-    background-color:lightgray;
-    color: blueviolet;
-    text-decoration: underline;
+#recommendedVideo {
+    margin-top: 2%;
+    margin-right: 2%;
+    float: right;
+    width: 45%;
+    height: 1000px;
+    background-color: yellow;
 }
 
-body a:active {
-    background-color: burlywood;
-    color: purple;
-    text-decoration: double;
+#advertiseDIV {
+    margin-top: 2%;
+    margin-right: 2%;
+    float: right;
+    width: 45%;
+    height: 100px;
+    background-color: pink;
 }
 
-#videoDIV{
-    margin-top:2%;
-    margin-left:2%;
-    float:left;
-    width:45%;
-    height:500px;
-    background-color:yellow;
+#videoDetails {
+    margin-top: 2%;
+    margin-left: 2%;
+    float: left;
+    width: 45%;
+    height: 100px;
+    background-color: pink;
 }
 
-#recommendedVideo{
-    margin-top:2%;
-    margin-right:2%;
-    float:right;
-    width:45%;
-    height:1000px;
-    background-color:yellow;
+#commentsDIV {
+    margin-top: 2%;
+    margin-left: 2%;
+    float: left;
+    width: 45%;
+    height: 400px;
+    background-color: pink;
 }
 
-#advertiseDIV{
-    margin-top:2%;
-    margin-right:2%;
-    float:right;
-    width:45%;
-    height:100px;
-    background-color:pink;
-}
-
-#videoDetails{
-    margin-top:2%;
-    margin-left:2%;
-    float:left;
-    width:45%;
-    height:100px;
-    background-color:pink;
-}
-
-#commentsDIV{
-    margin-top:2%;
-    margin-left:2%;
-    float:left;
-    width:45%;
-    height:400px;
-    background-color:pink;
-}
-
-#userDetail{
-    float:right;
+#userDetail {
+    float: right;
     margin-right: 4%;
     padding-left: 1%;
     padding-right: 1%;
     width: 70%;
     background-color: whitesmoke;
     margin-bottom: 5px;
-}
+}*/

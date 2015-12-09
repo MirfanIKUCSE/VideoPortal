@@ -5,10 +5,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <%-- Bootstrap --%>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link href="style/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <%-- Bootstrap --%>
     <title></title>
     <link href="style/style.css" rel="stylesheet" />
@@ -17,62 +19,82 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div id="vp-body">
-            <div id="vp-header">
-                <center><h1>HEADER</h1></center>
+        <div id="<%--vp-body--%>" class="container-fluid">
+            <div id="vp-header" class="jumbotron span12">
+                <h1 class="h1">Welcome <small>to the</small>
+                    <abbr title="CSE5001 Term project by M.Irfan & Dila">VideoPortal!</abbr></h1>
             </div>
-            <div id="vp-top-menu">
-                <center>TOP-MENU</center>
-                <asp:LoginView ID="LoginView2" runat="server">
-                    <LoggedInTemplate>
-                        Welcome,
-                        <asp:LoginName ID="LoginName1" runat="server" Font-Bold="True" ForeColor="#0066FF" />
-                    </LoggedInTemplate>
-                    <AnonymousTemplate>
-                    </AnonymousTemplate>
-                </asp:LoginView>
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <div class="navbar-brand">
+                            <asp:LoginView ID="LoginView2" runat="server">
+                                <LoggedInTemplate>
+                                    Welcome,
+                        <asp:LoginName ID="LoginName1" runat="server" CssClass="alert alert-success" />
+                                </LoggedInTemplate>
+                                <AnonymousTemplate>
+                                </AnonymousTemplate>
+                            </asp:LoginView>
+                        </div>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Member/Upload.aspx" Text="Upload Video" runat="server"></asp:HyperLink></li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">Explore
+                                <span class="caret"></span></a>
 
-                <ul class="top-menu-ul">
+                            <asp:Repeater ID="repCategory" runat="server">
+                                <HeaderTemplate>
+                                    <ul class="dropdown-menu">
+                                </HeaderTemplate>
+                                <ItemTemplate>
+                                    <li>
+                                        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("category_id","~/CategoryDetail.aspx?cid={0}") %>' Text='<%# Eval("category_name") %>' />
+                                    </li>
+                                </ItemTemplate>
+                                <FooterTemplate></ul></FooterTemplate>
+                            </asp:Repeater>
+
+                        </li>
+                    </ul>
                     <asp:LoginView ID="LoginView1" runat="server">
                         <LoggedInTemplate>
-                            <li>
-                                <asp:LinkButton ID="lnkBtnLogout" OnClick="lnkBtnLogout_Click" runat="server" CausesValidation="False">Logout</asp:LinkButton>
-                            </li>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="active">
+                                    <asp:LinkButton ID="lnkBtnLogout" OnClick="lnkBtnLogout_Click" runat="server" CausesValidation="False">Logout</asp:LinkButton></li>
+                            </ul>
                         </LoggedInTemplate>
                         <AnonymousTemplate>
-                            <%--<li><a href="/SignUp.aspx">SignUp</a></li>
-                            <li><a href="/Login.aspx">Login</a></li>--%>
-                            <li><asp:HyperLink ID="HyperLink3" NavigateUrl="~/SignUp.aspx" Text="Signup" runat="server"></asp:HyperLink></li>
-                            <li><asp:HyperLink ID="HyperLink4" NavigateUrl="~/Login.aspx" Text="Login" runat="server"/></li>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <asp:HyperLink ID="hlSignup" NavigateUrl="~/SignUp.aspx" runat="server"><span class="glyphicon glyphicon-user"></span> Signup</asp:HyperLink></li>
+                                <li>
+                                    <asp:HyperLink ID="hlLogin" NavigateUrl="~/Login.aspx"  runat="server"><span class="glyphicon glyphicon-log-in"></span> Login</asp:HyperLink></li>
+                            </ul>
                         </AnonymousTemplate>
                     </asp:LoginView>
-                    <%--<li><a href="Member/Upload.aspx">Upload!</a></li>--%>
-                    <li>
-                        <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Member/Upload.aspx" Text="Upload Video" runat="server"></asp:HyperLink>
-                    </li>
-                </ul>
-            </div>
+
+
+                </div>
+            </nav>
             <div id="vp-left-menu">
-                <center><h3>LEFT-MENU</h3></center>
-                <ul class="left-menu-ul">
+                <%--<ul class="left-menu-ul">
                     <asp:Repeater ID="repCategory" runat="server">
                         <ItemTemplate>
                             <li>
-                                <%--<a href="CategoryDetail.aspx?cid=<%# Eval("category_id") %>">
-                                    <%# Eval("category_name") %>
-                                </a>--%>
                                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl='<%# Eval("category_id","~/CategoryDetail.aspx?cid={0}") %>' Text='<%# Eval("category_name") %>' />
                             </li>
                         </ItemTemplate>
                     </asp:Repeater>
-                </ul>
+                </ul>--%>
             </div>
             <div id="vp-content">
                 <asp:ContentPlaceHolder ID="Content" runat="server">
                 </asp:ContentPlaceHolder>
             </div>
             <div id="vp-footer">
-                <center><h1>FOOTER</h1></center>
             </div>
         </div>
     </form>
