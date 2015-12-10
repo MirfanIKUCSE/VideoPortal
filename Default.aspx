@@ -4,6 +4,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="Server">
     <h1>Content Area viTube</h1>
-    <p>VideoPort is CSE5001 Term Project, Implemented by M.Irfan & Dila</p>
+    <p>VideoPortal is CSE5001 Term Project, Implemented by M.Irfan & Dila</p>
 </asp:Content>
 

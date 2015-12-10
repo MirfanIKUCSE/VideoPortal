@@ -28,18 +28,16 @@
         <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-success" />
     </div>
 
-    <%--<a href="SignUp.aspx">Not a member? Click to Signup!</a>--%>
     <div class="row">
         <asp:HyperLink ID="HyperLink1" NavigateUrl="~/SignUp.aspx" Text="Not a member? Click to Signup!" runat="server" />
     </div>
-    <%--<a href="RecoverPassword.aspx">Forgot your password? Then Click!</a>--%>
+
     <div class="row">
         <asp:HyperLink ID="HyperLink2" NavigateUrl="~/RecoverPassword.aspx" Text="Forgot your password? Then Click!" runat="server" />
     </div>
 
     <div class="row">
         <asp:Label ID="lblMessage" runat="server" CssClass="bg-danger" Font-Bold="True"></asp:Label>
-    </div>
     </div>
 </asp:Content>
 

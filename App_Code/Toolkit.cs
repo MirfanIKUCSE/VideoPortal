@@ -204,15 +204,18 @@ public class Toolkit
 
     public static DataTable ProcReadVideoContent(int post_id)
     {
-        SqlConnection Conn = new SqlConnection(@"Server = DBTMN\SQLEXPRESS; Database = VideoPortal; Trusted_Connection = True;");
-        Conn.Open();
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
+        
         DataTable dt = new DataTable();
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = "ReadContent";
         cmd.Connection = Conn;
         cmd.Parameters.AddWithValue("@postid", post_id.ToString());
-        cmd.ExecuteNonQuery();
+        Conn.Open();
+        //cmd.ExecuteNonQuery();
         SqlDataAdapter adp = new SqlDataAdapter(cmd);
         adp.Fill(dt);
         Conn.Close();
