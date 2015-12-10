@@ -4,40 +4,45 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="Server">
     <div class="container-fluid">
-        <div class="row">
-            <h1 class="h1 col-md-5">Login to be Connected!</h1>
+        <h1 class="h1">Login to be Connected!</h1>
+        <br />
+        <br />
+        <div class="form-horizontal">
+            <div class="form-group">
+                <asp:Label ID="lblEmail" CssClass="control-label col-sm-2" runat="server" Text="Email"></asp:Label>
+                <div class="col-sm-6">
+                    <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                </div>
+                <div class="col-sm-4">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Error!" CssClass="alert-danger control-label col-sm-2"></asp:RequiredFieldValidator>
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <asp:Label ID="lblPassword" runat="server" Text="Password" CssClass="control-label col-sm-2"></asp:Label>
+                <div class="col-sm-6">
+                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                </div>
+                <div class="col-sm-4">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Error!" CssClass="alert-danger control-label col-sm-2"></asp:RequiredFieldValidator>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn btn-primary" />
+                </div>
+            </div>
         </div>
-        <div class="row">
-            <div class="col-md-offset-0">
-                <asp:Label ID="lblEmail" runat="server" Text="Username / Email" CssClass="text-bold"></asp:Label>
-            </div>
-            <div class="col-md-4 col-md-offset-2">
-                <asp:TextBox ID="txtEmail" runat="server" CssClass=""></asp:TextBox>
-            </div>
-            <div class="span6 offset3">
-                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtEmail" ErrorMessage="Required: Username or Email " CssClass="alert alert-danger text-bold"></asp:RequiredFieldValidator>
-            </div>
+        <div class="row col-sm-offset-2 col-sm-6">
+            <asp:Label ID="lblMessage" runat="server" CssClass="alert-danger" Font-Bold="True"></asp:Label>
         </div>
-    </div>
-    <div class="row">
-        <asp:Label ID="lblPassword" runat="server" Text="Password" CssClass="text-bold"></asp:Label>
-        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password"></asp:TextBox>
-        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtPassword" ErrorMessage="Required: Password" CssClass="alert alert-danger text-bold"></asp:RequiredFieldValidator>
-    </div>
-    <div class="row">
-        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" CssClass="btn-success" />
-    </div>
-
-    <div class="row">
-        <asp:HyperLink ID="HyperLink1" NavigateUrl="~/SignUp.aspx" Text="Not a member? Click to Signup!" runat="server" />
-    </div>
-
-    <div class="row">
-        <asp:HyperLink ID="HyperLink2" NavigateUrl="~/RecoverPassword.aspx" Text="Forgot your password? Then Click!" runat="server" />
-    </div>
-
-    <div class="row">
-        <asp:Label ID="lblMessage" runat="server" CssClass="bg-danger" Font-Bold="True"></asp:Label>
+        <div class="row col-sm-offset-2 col-sm-6">
+            <asp:HyperLink ID="HyperLink1" CssClass="text-muted" NavigateUrl="~/SignUp.aspx" Text="Not a member? Click to Signup!" runat="server" />
+            <br />
+            <asp:HyperLink ID="HyperLink2" CssClass="text-muted" NavigateUrl="~/RecoverPassword.aspx" Text="Forgot your password? Then Click!" runat="server" />
+        </div>
     </div>
 </asp:Content>
 
