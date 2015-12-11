@@ -83,7 +83,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-8 col-sm-2">
+                <div class="col-sm-offset-5 col-sm-2">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" CssClass="alert-danger" ControlToValidate="txtPassword" ErrorMessage="Password is required"></asp:RequiredFieldValidator>
                 </div>
             </div>
