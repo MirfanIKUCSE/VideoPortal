@@ -113,7 +113,7 @@ public partial class Video : System.Web.UI.Page
         }
         else
         {
-            Response.Redirect("/Login.aspx");
+            Response.Redirect("~/Login.aspx");
         }
         uploadDtLComment();
     }
