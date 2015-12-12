@@ -3,6 +3,7 @@
 0. Absolute path:	convert all links used by master page to hyperlinks with navigateurl -> ~/ etc
 1. Signup:			page load function & code behind -> stored procedure
 2. UploadVideo:		page load function & code behind -> stored procedure
+<<<<<<< HEAD
 3. Comment eklemek ile alakalı tablolar ???
 =======
 0. IN PROGRESS	| Absolute path:	convert all links used by master page to hyperlinks with navigateurl -> ~/ etc
@@ -10,3 +11,6 @@
 2. DONE			| UploadVideo:		page load function & code behind -> stored procedure
 3. IN PROGRESS  | Integrage Bootsrap on a different git branch called bootsrap
 >>>>>>> origin/master
+=======
+3. TEST DILA TEST TEST TEST
+>>>>>>> parent of 902f344... dila

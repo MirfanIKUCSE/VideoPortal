@@ -31,7 +31,6 @@
                         <LoggedInTemplate>
                             <li>
                                 <asp:LinkButton ID="lnkBtnLogout" OnClick="lnkBtnLogout_Click" runat="server" CausesValidation="False">Logout</asp:LinkButton>
-                                <asp:LinkButton ID="lnkBtnProfile" OnClick="lnkBtnProfile_Click" runat="server" CausesValidation="False">Profile</asp:LinkButton>
                             </li>
                         </LoggedInTemplate>
                         <AnonymousTemplate>

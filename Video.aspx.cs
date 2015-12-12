@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -12,28 +11,22 @@ public partial class Video : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        uploadDetails(Int32.Parse(Request.QueryString["vid"]));
-
-        if(!IsPostBack && Request.QueryString!=null)
-        {
-            IncrementView();
-        }
-        uploadDtLComment();
-
-        string table_name = "[members].[Post]";
-        DataTable dt = Toolkit.SelectAllInfoByParameters(table_name, Request.QueryString["vid"].ToString());
-        string num_like = dt.Rows[0]["num_likes"].ToString();
-        string num_dislike = dt.Rows[0]["num_dislikes"].ToString();
-        lblLikeResult.Text = num_like;
-        lblDislikeResult.Text = num_dislike;
+        retrievePostID();
     }
-    
+
+    public void retrievePostID()
+    {
+        int post_id = Int32.Parse(Request.QueryString["vid"].ToString());
+        uploadDetails(post_id);
+    }
+
     public void uploadDetails(int post_id)
     {
         DataTable dt = Toolkit.ProcReadVideoContent(post_id);
         lblCaption.Text = dt.Rows[0]["post_caption"].ToString();
         lblDescrp.Text = dt.Rows[0]["post_description"].ToString();
     }
+<<<<<<< HEAD
 
     // Invokes selectSRC(string post_id) which is in Toolkit.cs and returns the post_link row as String
     public string takeSRC()
@@ -148,4 +141,6 @@ public partial class Video : System.Web.UI.Page
         InsertComment();
     }
     
+=======
+>>>>>>> parent of 902f344... dila
 }
