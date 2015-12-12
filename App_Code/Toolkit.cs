@@ -202,20 +202,229 @@ public class Toolkit
         return result;
     }
 
+    /// <summary>
+    /// By the selected video's id information, this method retrieves 
+    /// result of Stored Procedure and stores it to DataTable dt
+    /// </summary>
+    /// <param name="post_id"></param>
+    /// <returns></returns>
     public static DataTable ProcReadVideoContent(int post_id)
     {
-        SqlConnection Conn = new SqlConnection(@"Server = DBTMN\SQLEXPRESS; Database = VideoPortal; Trusted_Connection = True;");
-        Conn.Open();
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
         DataTable dt = new DataTable();
         SqlCommand cmd = new SqlCommand();
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "ReadContent";
-        cmd.Connection = Conn;
-        cmd.Parameters.AddWithValue("@postid", post_id.ToString());
-        cmd.ExecuteNonQuery();
-        SqlDataAdapter adp = new SqlDataAdapter(cmd);
-        adp.Fill(dt);
-        Conn.Close();
+
+        try
+        {
+            Conn.Open();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "ReadContent";
+            cmd.Connection = Conn;
+            cmd.Parameters.AddWithValue("@postid", post_id.ToString());
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);
+            Conn.Close();
+        }
+        catch (Exception e)
+        {
+
+        }
         return dt;
+    }
+
+    /// <summary>
+    /// Takes all data from table according to post_id and returns DataTable
+    /// </summary>
+    /// <param name="post_id"></param>
+    /// <returns></returns>
+    public static DataTable selectSRC(string post_id)
+    {
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+
+        try {
+            Conn.Open();
+
+            cmd.CommandText = "SELECT * FROM [members].[Post] WHERE [post_id] = @postid";
+            cmd.Connection = Conn;
+            cmd.Parameters.AddWithValue("@postid", post_id);
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);            
+            Conn.Close();
+        }
+        catch (Exception e)
+        {
+
+        }
+
+        return dt;
+    }
+    /// <summary>
+    /// By the selected video's id information, this method increments 
+    /// the number of view by Stored Procedure which is named as IncrementView
+    /// </summary>
+    /// <param name="post_id"></param>
+    public static void ProcIncrementView(string post_id)
+    {
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+
+        try
+        {
+            Conn.Open();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "IncrementView";
+            cmd.Connection = Conn;
+            cmd.Parameters.AddWithValue("@postid", post_id.ToString());
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);
+            Conn.Close();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+    /// <summary>
+    /// By the selected video's id information, this method increments 
+    /// the number of likes by Stored Procedure which is named as IncrementLike
+    /// </summary>
+    /// <param name="post_id"></param>
+    public static void ProcIncrementLike(string post_id)
+    {
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+
+        try
+        {
+            Conn.Open();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "IncrementLike";
+            cmd.Connection = Conn;
+            cmd.Parameters.AddWithValue("@postid", post_id.ToString());
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);
+            Conn.Close();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+    /// <summary>
+    /// By the selected video's id information, this method increments 
+    /// the number of dislikes by Stored Procedure which is named as IncrementDislike
+    /// </summary>
+    /// <param name="post_id"></param>
+    public static void ProcIncrementDislike(string post_id)
+    {
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
+        DataTable dt = new DataTable();
+        SqlCommand cmd = new SqlCommand();
+
+        try
+        {
+            Conn.Open();
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "IncrementDislike";
+            cmd.Connection = Conn;
+            cmd.Parameters.AddWithValue("@postid", post_id.ToString());
+            cmd.ExecuteNonQuery();
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            adp.Fill(dt);
+            Conn.Close();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+    /// <summary>
+    /// This method returns a DataTable which includes info according to given table_name and post_id
+    /// </summary>
+    /// <param name="table_name"></param>
+    /// <param name="post_id"></param>
+    /// <returns></returns>
+    public static DataTable SelectAllInfoByParameters(string table_name, string post_id)
+    {
+        DataTable dt = new DataTable();
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
+        if (table_name != null && post_id!= null)
+        {
+            try
+            {
+                SqlCommand cmd = new SqlCommand("SELECT * FROM " + table_name + " WHERE [post_id]= @postid", Conn);
+                cmd.Parameters.AddWithValue("@postid", post_id.ToString());
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                Conn.Open();
+                adp.Fill(dt);
+                Conn.Close();
+            }
+            catch (Exception e)
+            {
+
+            }
+        }
+        return dt;
+    }
+
+    /// <summary>
+    /// By the post_id, user_id, comment, time variables, this method inserts comment
+    /// by Stored Procedure which is named as InsertComment
+    /// </summary>
+    /// <param name="post_id"></param>
+    /// <param name="user_id"></param>
+    /// <param name="comment"></param>
+    /// <param name="time"></param>
+    public static int ProcInsertComment(string post_id, string user_id, string comment, string time)
+    {
+        int result = -1;
+        string connectionName = "Conn";
+        string connectionString = ConfigurationManager.ConnectionStrings[connectionName].ConnectionString;
+        SqlConnection Conn = new SqlConnection(connectionString);
+        try
+        {
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = "InsertComment";
+            cmd.Parameters.AddWithValue("@postid", post_id);
+            cmd.Parameters.AddWithValue("@userid", user_id);
+            cmd.Parameters.AddWithValue("@comment_text", comment);
+            cmd.Parameters.AddWithValue("@time", time);
+            cmd.Connection = Conn;
+            Conn.Open();
+            result = cmd.ExecuteNonQuery();            
+        }
+        catch (Exception e)
+        {
+
+        }
+        return result;
     }
 }

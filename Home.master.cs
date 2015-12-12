@@ -36,4 +36,9 @@ public partial class Home : System.Web.UI.MasterPage
         Session.Abandon();
         Response.Redirect("/Default.aspx");
     }
+
+    protected void lnkBtnProfile_Click(object sender, EventArgs e)
+    {
+        Response.Redirect("/UserDetail.aspx");
+    }
 }

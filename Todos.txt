@@ -2,4 +2,4 @@
 0. Absolute path:	convert all links used by master page to hyperlinks with navigateurl -> ~/ etc
 1. Signup:			page load function & code behind -> stored procedure
 2. UploadVideo:		page load function & code behind -> stored procedure
-3. TEST DILA TEST TEST TEST
+3. Comment eklemek ile alakalı tablolar ???
